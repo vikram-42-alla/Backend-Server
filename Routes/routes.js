@@ -28,15 +28,7 @@ app.get("/get",async(req,res)=>{
 //Student API
 app.post("/signup",async(req,res)=>{
     try {
-        const{name,
-            fatherName,
-            DOB,
-            branch,
-            rollNo,
-            section,
-            address,
-            mobileNo,
-            password}=req.body
+        const{rollNo}=req.body
         const rollNumber=await Student.findOne({rollNo})
       
         if(rollNumber){
