@@ -1,29 +1,10 @@
 const express=require("express")
 const app=express()
-const Cart=require("../Models/Cart")
+
 const Student=require("../Models/Student")
 app.use(express.json())
 //Products API
-app.post("/add",async(req,res)=>{
-    try {
-        const cart=new Cart(req.body)
-        await cart.save()
-        res.status(201).json({message:"Added to cart"})
-    } catch (error) {
-        console.error(error);
-        
-    }
-})
-app.get("/get",async(req,res)=>{
-    try {
-        const getProducts=await Cart.find();
-        if(!getProducts) return res.status(404).json({message:"Data not found"})
-        res.json(getProducts) 
-    } catch (error) {
-        console.error(error);
-        
-    }
-})
+
 
 //Student API
 app.post("/signup",async(req,res)=>{

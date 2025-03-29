@@ -7,7 +7,8 @@ const studentSchema=new mongoose.Schema({
     rollNo:String,
     section:String,
     address:String,
-    mobileNo:Number,
+    email:String,
+    mobileNo:String,
     password:String
 })
 const model=mongoose.model("Student",studentSchema)

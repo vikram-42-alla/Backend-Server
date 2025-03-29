@@ -1,3 +1,4 @@
+
 const mongoose=require("mongoose")
 const cartSchema=new mongoose.Schema({
     title:String,
@@ -6,8 +7,8 @@ const cartSchema=new mongoose.Schema({
     image:String,
     price:String,
     discountPercentage:String,
-    offerPrice:Number,
-    reviews:String
+    offerPrice:String,
+    reviews:Number
 
 })
 const Model=mongoose.model("Cart",cartSchema)
