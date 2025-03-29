@@ -7,7 +7,7 @@ const routes=require("./Routes/routes")
 const app=express()
 app.use(express.json())
 // app.use(cors())
-app.use("/cart",routes)
+app.use("/user",routes)
 
 dotenv.config()
 mongoose.connect(process.env.MONGODB_URL)
