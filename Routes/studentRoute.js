@@ -3,7 +3,7 @@ const app=express()
 
 const Student=require("../Models/Student")
 app.use(express.json())
-//Products API
+
 
 
 //Student API
