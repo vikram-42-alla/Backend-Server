@@ -35,11 +35,24 @@ app.post("/signin",async(req,res)=>{
          const{rollNo,password}=req.body
         const studentLogin=await Student.findOne({rollNo,password})
         if(studentLogin){
-            res.status(200).json({message:"Login Successfully",StudentData:studentLogin})
+            res.json(studentLogin)
         }
         else{
             res.status(400).json({message:"Invalid Rollno or password"})
         }
+    } catch (error) {
+        console.error(error);
+        
+    }
+})
+app.post("/details",async(req,res)=>{
+    try {
+        const{rollNo}=req.body
+        const user=await Student.find({rollNo})
+        if(!user){
+            return res.status(400).json({error:"Error"})
+        }
+        res.json(user)
     } catch (error) {
         console.error(error);
         
