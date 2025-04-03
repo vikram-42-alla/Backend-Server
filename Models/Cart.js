@@ -1,14 +1,16 @@
 
 const mongoose=require("mongoose")
 const cartSchema=new mongoose.Schema({
+    id:Number,
     title:String,
-    category:String,
-    description:String,
-    image:String,
     price:Number,
-    discountPercentage:Number,
     offerPrice:Number,
-    reviews:Number
+    discountPercentage:String,
+    description:String,
+    category:String,
+    image:String,
+    reviews:Object,
+    quantity:Number
 
 })
 const Model=mongoose.model("Cart",cartSchema)
