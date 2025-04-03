@@ -5,9 +5,9 @@ const cartSchema=new mongoose.Schema({
     category:String,
     description:String,
     image:String,
-    price:String,
-    discountPercentage:String,
-    offerPrice:String,
+    price:Number,
+    discountPercentage:Number,
+    offerPrice:Number,
     reviews:Number
 
 })
