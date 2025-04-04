@@ -5,8 +5,15 @@ const Cart=require("../Models/Cart")
 app.use(express.json())
 app.post("/add", async (req, res) => {
     try {
+        const { id, title, price, offerPrice, discountPercentage, description, category, image, reviews } = req.body;
+        // Check if the product already exists in the database
+        const existpd=await Product.findOne({ id });
+        if (existpd) {
+            return res.status(400).json({ message: "Product already exists" });
+        }
         const product=new Product(req.body);
         await product.save();
+        res.status(201).json({ message: "Product added successfully" });
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ message: "Internal Server Error" });

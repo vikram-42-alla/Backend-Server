@@ -64,8 +64,9 @@ try {
     const { id } = req.body;
     const deletedProduct = await Cart.findOneAndDelete({ id });
     if (!deletedProduct) {
-        return res.status(404).json({ message: "Product not found" });
+        return res.status(200).json({ message: "Product not found" });
     }
+    res.status(200).json({ message: "Product removed" });
 } catch (error) {
     
 }
