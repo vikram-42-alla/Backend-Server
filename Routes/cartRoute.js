@@ -42,4 +42,32 @@ app.get("/get",async(req,res)=>{
         
     }
 })
+app.put("/update",async(req,res)=>{
+    try {
+        const { id, quantity } = req.body;
+        const updatedProduct = await Cart.findOneAndUpdate(
+            { id },
+            { quantity },
+            { new: true }
+        );
+        if (!updatedProduct) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        res.json(updatedProduct);
+    } catch (error) {
+        console.error(error);
+        
+    }
+})
+app.delete("/remove",async(req,res)=>{
+try {
+    const { id } = req.body;
+    const deletedProduct = await Cart.findOneAndDelete({ id });
+    if (!deletedProduct) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+} catch (error) {
+    
+}
+})
 module.exports=app
