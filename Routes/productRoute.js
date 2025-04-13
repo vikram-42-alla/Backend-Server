@@ -10,7 +10,7 @@ app.post("/add", async (req, res) => {
         const existpd=await Product.findOne({ id });
         if (existpd) {
             return res.status(400).json({ message: "Product already exists" });
-        }
+        } 
         const product=new Product(req.body);
         await product.save();
         res.status(201).json({ message: "Product added successfully" });
