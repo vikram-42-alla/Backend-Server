@@ -58,4 +58,13 @@ app.post("/details",async(req,res)=>{
         
     }
 })
+app.get("/get",async(req,res)=>{
+    try {
+        const user=await Student.find();
+        if(!user)return res.status(404).json({message:"User not found"});
+        res.status(201).json(user);
+    } catch (error) {
+        console.log(error)
+    }
+})
 module.exports=app
