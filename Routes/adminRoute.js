@@ -27,7 +27,7 @@ app.post("/login",async(req,res)=>{
         const isMatch=await bcrypt.compare(password,adminData.password)
         if(!isMatch) return res.status(401).json({message:"Invalid credentials"})
         const token=jwt.sign({id:adminData._id},"my-key",{expiresIn:"1h"})
-        res.status(200).json({message:"Login successful",token})
+        res.status(200).json(adminData)
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ message: "Internal Server Error" });
