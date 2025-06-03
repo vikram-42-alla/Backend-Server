@@ -30,4 +30,18 @@ app.get("/get",async(req,res)=>{
         
     }
 })
+app.delete("/remove", async (req, res) => {
+  try {
+    const { id } = req.body;
+    const deletedProduct = await Product.findOneAndDelete({ id });
+    if (!deletedProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.status(200).json({ message: "Product removed" });
+  } catch (error) {
+    console.error("Delete Product Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 module.exports=app
