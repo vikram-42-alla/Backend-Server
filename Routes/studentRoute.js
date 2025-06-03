@@ -38,7 +38,7 @@ app.post("/signin",async(req,res)=>{
             res.json(studentLogin)
         }
         else{
-            res.status(400).json({message:"Invalid Rollno or password"})
+            res.status(400).json({message:"Invalid Username or password"})
         }
     } catch (error) {
         console.error(error);
