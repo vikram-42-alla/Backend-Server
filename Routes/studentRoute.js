@@ -70,7 +70,7 @@ app.post("/signin", async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.json({ message: "Login successful", token });
+    res.json({ student });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Signin failed" });
