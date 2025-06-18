@@ -92,7 +92,7 @@ function verifyToken(req, res, next) {
 }
 
 // Get specific student details (protected)
-app.post("/details", verifyToken, async (req, res) => {
+app.post("/details",  async (req, res) => {
   try {
     const { rollNo } = req.body;
     const user = await Student.findOne({ rollNo });
