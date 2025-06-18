@@ -56,7 +56,7 @@ app.post("/signin", async (req, res) => {
   try {
     const { rollNo, password } = req.body;
 
-    const student = await Student.findOne({ rollNo,password });
+    const student = await Student.findOne({ rollNo });
     if (!student) {
       return res.status(400).json({ message: "Invalid roll number or password" });
     }
@@ -107,7 +107,7 @@ app.post("/details", verifyToken, async (req, res) => {
 });
 
 // Get all students (protected)
-app.get("/details", verifyToken, async (req, res) => {
+app.get("/get", verifyToken, async (req, res) => {
   try {
     const users = await Student.find();
     if (!users) return res.status(404).json({ message: "No users found" });
